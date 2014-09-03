@@ -14,7 +14,7 @@
     <ProjectGuid>{11A78564-15FB-4C9C-A11C-A3768B2910A7}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>HelloProject</RootNamespace>
-    <ProjectName>Minecart</ProjectName>
+    <ProjectName>HelloProject</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
