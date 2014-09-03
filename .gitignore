@@ -19,3 +19,8 @@
 *.exe
 *.out
 *.app
+
+#folders
+Project/assets/*
+Project/Debug/*
+UtHEngine/android/assets/*
