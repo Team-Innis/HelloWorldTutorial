@@ -24,3 +24,8 @@
 Project/assets/*
 Project/Debug/*
 UtHEngine/android/assets/*
+
+#reverse
+!UtHEngine/winlibs/*
+!UtHEngine/winlibs/Debug/*
+!UtHEngine/winlibs/Release/*
