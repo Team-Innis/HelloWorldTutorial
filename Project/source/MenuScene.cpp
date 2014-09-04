@@ -28,7 +28,7 @@ bool MenuScene::Init()
 
 	animGO = new GameObject();
 	animGO->AddComponent(new uth::AnimatedSprite(
-		new Texture("planetsheet.tga"), 25, 5, 5, 10));
+		&uthRS.LoadTexture("planetsheet.tga"), 25, 5, 5, 10));
 
 	return true;
 }
