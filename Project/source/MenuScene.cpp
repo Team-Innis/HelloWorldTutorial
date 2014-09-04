@@ -4,6 +4,7 @@
 #include <UtH/Platform/Debug.hpp> //WriteLog(...), works like printf.
 #include <UtH/Engine/Text.hpp>
 #include <UtH/Engine/AnimatedSprite.hpp>
+#include <UtH/Platform/Input.hpp>
 
 using namespace uth;
 
@@ -16,17 +17,20 @@ bool MenuScene::Init()
 	m_shader.Use();
 	uthEngine.GetWindow().SetShader(&m_shader);
 
+	uthEngine.GetWindow().GetCamera()
+		.SetPosition(uthEngine.GetWindow().GetSize()/2);
+	
 	uth::Text* helloText = new Text("kenpixel.ttf", 24.f);
 
 	helloGO = new GameObject();
 	helloGO->AddComponent(helloText);
 
 	helloText->AddText("Hello World!");
-	helloGO->transform.SetPosition(0, -256.f);
+	helloGO->transform.SetPosition(uthEngine.GetWindow().GetSize().x / 2, 256.f);
 
 	worldGO = new GameObject();
 	worldGO->AddComponent(new uth::AnimatedSprite(
-		new Texture("EngineAnimation.tga"), 60, 6, 10));
+		new Texture("planetsheet.tga"), 25, 5, 5, 10));
 
 	return true;
 }
@@ -43,6 +47,9 @@ bool MenuScene::DeInit()
 // Update loop. Gone trought once per frame.
 bool MenuScene::Update(float dt)
 {
+	worldGO->transform.SetPosition(uthInput.Mouse.Position());
+
+	worldGO->Update(dt);
 	return true; // Update succeeded.
 }
 
