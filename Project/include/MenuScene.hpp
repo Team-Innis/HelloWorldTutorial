@@ -11,7 +11,7 @@ class MenuScene : public uth::Scene
 private: // Just place everything else as private.
 	uth::Shader m_shader;
 	uth::GameObject* helloGO;
-	uth::GameObject* worldGO;
+	uth::GameObject* animGO;
 public: // Every one of these public functions are required.
 	MenuScene();
 	~MenuScene();

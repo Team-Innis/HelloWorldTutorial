@@ -19,17 +19,15 @@ bool MenuScene::Init()
 
 	uthEngine.GetWindow().GetCamera()
 		.SetPosition(uthEngine.GetWindow().GetSize()/2);
-	
-	uth::Text* helloText = new Text("kenpixel.ttf", 24.f);
 
 	helloGO = new GameObject();
-	helloGO->AddComponent(helloText);
+	helloGO->AddComponent(new Text("kenpixel.ttf", 24.f));
 
-	helloText->AddText("Hello World!");
+	helloGO->GetComponent<Text>("Text")->AddText("Hello World!");
 	helloGO->transform.SetPosition(uthEngine.GetWindow().GetSize().x / 2, 256.f);
 
-	worldGO = new GameObject();
-	worldGO->AddComponent(new uth::AnimatedSprite(
+	animGO = new GameObject();
+	animGO->AddComponent(new uth::AnimatedSprite(
 		new Texture("planetsheet.tga"), 25, 5, 5, 10));
 
 	return true;
@@ -40,23 +38,23 @@ bool MenuScene::Init()
 bool MenuScene::DeInit()
 {
 	delete helloGO;
-	delete worldGO;
+	delete animGO;
 	return true;
 }
 
 // Update loop. Gone trought once per frame.
 bool MenuScene::Update(float dt)
 {
-	worldGO->transform.SetPosition(uthInput.Mouse.Position());
+	animGO->transform.SetPosition(uthInput.Mouse.Position());
 
-	worldGO->Update(dt);
+	animGO->Update(dt);
 	return true; // Update succeeded.
 }
 
 // Draw loop. All graphics are drawn during this loop.
 bool MenuScene::Draw()
 {
-	worldGO->Draw(uthEngine.GetWindow());
+	animGO->Draw(uthEngine.GetWindow());
 	helloGO->Draw(uthEngine.GetWindow());
 
 	return true; // Drawing succeeded.
